@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="panel.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Panel</title>
+</head>
+<body>
+    <nav class="navbar bg-primary" id="nav-bar" data-bs-theme="dark">
+      <h1>Yönetim Paneli</h1>
+    
+    </nav>
+    
+<div id="entity-wrapper">
+  <div id="list-group">
+    <div>
+      <button type="button" id="anasayfa-butonu" class="list-group-item list-group-item-action">Anasayfa</button>
+      <button type="button" id="profil-butonu" class="list-group-item list-group-item-action">Profil</button>
+      <button type="button" id="urun-butonu" class="list-group-item list-group-item-action">Ürünler</button>
+      <button type="button" id="kategori-butonu" class="list-group-item list-group-item-action">Kategori</button>
+      <button type="button" id="banner-butonu-2" class="list-group-item list-group-item-action">Banner</button>
+      <button type="button" id="kampanya-butonu" class="list-group-item list-group-item-action">Kampanya</button>
+    </div>
+    <div id="user-buton" >
+
+    </div>
+
+  </div>
+
+  <div id="anasayfa-content">
+      <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ürün Sayısı</h5>
+            <p class="card-text">12</p>
+            <button id="anasayfa-urun-butonu" class="btn btn-primary">Ürünleri Göster</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Kategori Sayısı</h5>
+            <p class="card-text">5</p>
+            <button id="anasayfa-kategori-butonu" class="btn btn-primary">Kategorileri Göster</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="kampanya-kart" class="card">
+          <div class="card-body">
+            <h5 class="card-title">Kampanya Sayısı</h5>
+            <p class="card-text">3</p>
+            <button id="anasayfa-kampanya-butonu" class="btn btn-primary">Kampanyaları Göster</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="profil-content" >
+
+    <div id="profile-input" >
+
+      <div id="profil-username" >
+
+        <div id="current-username-wrapper" class="input-group flex-nowrap">
+          <input id="current-username" disabled type="text" class="form-control" placeholder="Mevcut Kullanıcı Adı" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+        <div id="yeni-username-wrapper" class="input-group flex-nowrap">
+          <input id="yeni-username" type="text" class="form-control" placeholder="Yeni Kullanıcı Adı" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+        <div id="re-yeni-username-wrapper" class="input-group flex-nowrap">
+          <input id="re-yeni-username" type="text" class="form-control" placeholder="Tekrar Kullanıcı Adı" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+      </div>
+
+      <div id="profil-şifre" >
+
+        <div id="current-şifre-wrapper" class="input-group flex-nowrap">
+          <input id="current-şifre" disabled type="password" class="form-control" placeholder="Mevcut Şifreniz" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+        <div id="yeni-şifre-wrapper" class="input-group flex-nowrap">
+          <input id="yeni-şifre" type="password" class="form-control" placeholder="Yeni Şifre" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+        <div id="re-yeni-şifre-wrapper" class="input-group flex-nowrap">
+          <input id="re-yeni-şifre" type="password" class="form-control" placeholder="Tekrar Yeni Şifre" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="profile-buton" >
+      <button id="bilgi-değiştirme-butonu">Bilgileri Güncelle</button>
+
+    </div>
+    
+  </div>
+
+  <div id="urun-content">
+    <div id="urun-ekleme-wrapper" >
+      
+      <div class="image-input-wrapper" >
+              <label for="fileInput" class="file-upload-box" >
+                  <img id="preview" alt="Seçilen Fotoğraf" src="" style="display: none;" />
+                  <span id="placeholderText" >Fotoğraf Seç</span>
+              </label>
+              <input type="file" id="fileInput" accept="image/*" />
+          </div>
+          <div class="text-input-wrapper">
+
+              <div class="input-group mb-3">
+                  <span class="input-group-text">İsim</span>
+                  <input type="text" id="isim" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+              <div class="input-group mb-3">
+                  <span class="input-group-text">Açıklama</span>
+                  <input type="text" id="aciklama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+              <div class="input-group mb-3">
+                  <span id="kategori-span" class="input-group-text">Kategori</span>
+                  <select id="kategori" class="form-select form-select-lg mb-3" aria-label="Small select example">
+                    <option id="option" selected>Kategori Seçiniz</option>
+
+                  </select>
+              </div>
+
+              <div class="input-group mb-3">
+                  <span class="input-group-text">Stok</span>
+                  <input type="text" id="stok" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+              <div class="input-group mb-3">
+                  <span class="input-group-text">Fiyat</span>
+                  <input type="text" id="fiyat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+              <form id="product-form" >
+                <button type="submit" id="ekle-butonu" class="btn btn-outline-secondary" type="button">Ürün Ekle</button>
+              </form> 
+          </div>
+    </div>
+    <table id="urun-tablosu" class="table" >
+
+    </table>
+  </div>      
+
+  <div id="kategori-content">
+    <div id="kategori-wrapper" >
+      <div class="input-group mb-3">
+        <input id="kategori-ekleme" type="text" class="form-control" placeholder="Kategori" aria-label="Recipient’s username" aria-describedby="button-addon2">
+          <form id="kategori-form" >
+            <button class="btn btn-outline-secondary" type="submit" id="kategori-ekleme-butonu">Kategori Ekle</button>
+          </form>
+      </div>
+      <table id="kategori-listesi" class="table">
+      </table>
+    </div>
+  </div>
+
+  <div id="banner-content">
+    <div class="accordion-body" id="banner-body" >
+        <label for="fileInput-banner" class="file-upload-box-banner" >
+          <img id="preview-banner" alt="Seçilen Fotoğraf" src="" style="display: none;" />
+          <span id="placeholderText-banner" >Fotoğraf Seç</span>
+          <input type="file" id="fileInput-banner" accept="image/*" />
+        </label>
+        <div id="banner-desc" class="input-group mb-3">
+          <span class="input-group-text">Açıklama</span>
+          <input type="text" id="banner-desc-input" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div id="banner-url" class="input-group mb-3">
+          <span class="input-group-text">Url</span>
+          <input type="text" id="banner-url-input" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div id="banner-index" class="input-group mb-3">
+            <span id="kategori-span" class="input-group-text">Sıra</span>
+            <select id="index" class="form-select form-select-lg mb-3" aria-label="Small select example">
+              <option id="option" selected>Sıra Seçiniz</option>
+              <option id="option" value="1">1</option>
+              <option id="option" value="2">2</option>
+              <option id="option" value="3">3</option>
+              <option id="option" value="4">4</option>
+              <option id="option" value="5">5</option>
+            </select>
+         </div>
+        <div>
+          <form id="banner-form" >
+            <button id="banner-butonu" >Banner Ekle</button>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <div id="kampanya-content">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Açıklama</span>
+      <input id="kampanya-aciklama" type="text" class="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="inputGroupSelect01">Hedef Kategori</span>
+      <select class="form-select" id="kampanya-kategori">
+        <option selected>Kategori Seçin</option>
+    </select>
+  </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Değer (yüzde)</span>
+      <input id="kampanya-değer" type="text" class="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Kupon Kodu</span>
+      <input id="kampanya-kupon" type="text" class="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Başlangıç Tarihi</span>
+      <input id="kampanya-başlangıç" type="date" class="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Bitiş Tarihi</span>
+      <input id="kampanya-bitiş" type="date" class="form-control">
+    </div>
+
+    <button id="kampanya-ekleme-butonu" type="button" class="btn btn-outline-secondary">Kampanya Ekle</button>
+
+    <table class="table" id="kampanya-tablosu" >
+
+    </table>
+
+  </div> 
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+
+      
+
+
+
+
+
+
+
+        const input = document.getElementById("fileInput")
+        const preview = document.getElementById("preview")
+        const placeholder = document.getElementById("placeholderText")
+
+        input.addEventListener('change', () => {
+            const file = input.files[0]
+            if (file) {
+                const reader = new FileReader()
+                reader.onload = function (e) {
+                    preview.src = e.target.result
+                    preview.style.display = "block"
+                    placeholder.style.display = "none"
+                }
+                reader.readAsDataURL(file) 
+            }
+        })
+
+
+        const inputBanner = document.getElementById("fileInput-banner") 
+        const previewBanner = document.getElementById("preview-banner")
+        const placeholderBanner = document.getElementById("placeholderText-banner")
+
+        inputBanner.addEventListener("change", () => {
+          const fileBanner = inputBanner.files[0]
+          if (fileBanner) {
+            const readerBanner = new FileReader()
+            readerBanner.onload = function (e) {
+              previewBanner.src = e.target.result
+              previewBanner.style.display = "block"
+              placeholderBanner.style.display = "none"
+            }
+            readerBanner.readAsDataURL(fileBanner)
+          }
+        })
+
+
+
+
+        document.getElementById("product-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+         const isim = document.getElementById("isim").value
+         const aciklama = document.getElementById("aciklama").value
+         const kategori = document.getElementById("kategori").value
+         const stok = document.getElementById("stok").value
+         const fiyat = document.getElementById("fiyat").value
+         const foto_url = document.getElementById("preview").src
+
+         const product = {
+          isim: isim,
+          aciklama: aciklama,
+          kategori: kategori,
+          stok: stok,
+          fiyat: fiyat,
+          fotoğraf_url: foto_url
+         }
+        
+          const response = await fetch('/phillip/panel/product', {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( product )
+          })
+        })
+
+       
+
+        document.getElementById("kategori-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const kategori = document.getElementById("kategori-ekleme").value
+    
+          const kategoriObjesi = {
+            isim: kategori
+          }
+
+          const response = await fetch("/phillip/panel/kategori", {
+            method: "POST",
+            headers: {
+              'Content-Type': "application/json"
+            },
+            body: JSON.stringify( kategoriObjesi )
+          })
+        })
+
+
+        document.getElementById("banner-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const foto_url_banner = document.getElementById("preview-banner").src
+          const aciklama = document.getElementById("banner-desc-input").value
+          const index = document.getElementById("index").value
+          const url = document.getElementById("banner-url-input").value
+
+          const banner = {
+            açıklama: aciklama,
+            sıra: index,
+            fotoğraf_url:foto_url_banner,
+            url: url          
+          }
+
+          const response = await fetch("/phillip/panel/banner", {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( banner )
+          })
+        })
+
+
+
+        const kategoriInfo = async () => {
+    
+          const res = await fetch("/phillip/panel/kategori");
+          const data = await res.json();
+          data.forEach(k => {
+            üründeKategoriGöster(k.isim, k._id)
+            kampanyadaKategoriGöster(k.isim, k._id)
+          });
+
+          if (data){
+            const tHead = document.createElement("thead")
+            const tRow = document.createElement("tr")
+            const th1 = document.createElement("th")
+            const th2 = document.createElement("th")
+
+            th1.textContent = "Kategori"
+            th2.textContent = "Sil"
+
+          
+
+            document.getElementById("kategori-listesi").appendChild(tHead)
+            tHead.appendChild(tRow)
+            tRow.appendChild(th1)
+            tRow.appendChild(th2)
+
+            const tBody = document.createElement("tbody")
+            data.forEach( kategori => {
+              const tr = document.createElement("tr")
+              const td1 = document.createElement("td")
+              const td2 = document.createElement("td")
+              const silButonu = document.createElement("button")
+
+              silButonu.className = "sil-butonu"
+              silButonu.textContent = "Sil"
+              silButonu.type = "submit"
+
+              td1.textContent = kategori.isim
+              td2.appendChild(silButonu)
+
+              tr.appendChild(td1)
+              tr.appendChild(td2)
+
+              tBody.appendChild(tr)
+              document.getElementById("kategori-listesi").appendChild(tBody)
+
+              silButonu.addEventListener("click", async (e) => {
+              e.preventDefault()
+
+              const response = await fetch(`/phillip/panel/kategori/${kategori._id}`, {
+                method: "DELETE"
+              })
+              
+              if (response.ok) {
+                tr.remove()
+              } else {
+                alert("Kategori silinemedi.")
+              }
+        })
+}) 
+}
+}
+        kategoriInfo()
+
+        const kampanyadaKategoriGöster = (isim, id) => {
+          const option = document.createElement("option")
+          option.textContent = isim
+          option.value = id
+          document.getElementById("kampanya-kategori").appendChild(option)
+        }
+
+        const üründeKategoriGöster = (isim, id) => {
+          const option = document.createElement("option")
+          option.textContent = isim
+          option.value = id
+          document.getElementById("kategori").appendChild(option)
+        }
+
+
+        window.onload = async () => {
+          const response = await fetch("/phillip/panel/userInfo", {
+            method: "GET",
+            credentials: "include"
+          })
+
+          const data = await response.json()
+
+          if (response.ok) {
+            const cikButonu = document.createElement("button")
+            const silButonu = document.createElement("button")
+            const userButonDiv = document.getElementById("user-buton")
+
+            cikButonu.className = "cikbutonu"
+            cikButonu.textContent = "Çıkış Yap"
+
+            silButonu.className = "silbutonu"
+            silButonu.textContent = "Kullanıcıyı Sil"
+
+
+            userButonDiv.appendChild(cikButonu)
+            userButonDiv.appendChild(silButonu)
+
+            cikButonu.addEventListener("click", async (e) => {
+              e.preventDefault()
+              const response = await fetch("/phillip/panel/cikis", {
+                method: "POST",
+                credentials: "include"
+              })
+
+              if (response.ok) {
+                window.location.href = "/phillip/login"
+              } else {
+                alert("Çıkış yapılamadı.")
+              }
+            })
+
+            silButonu.addEventListener("click", async (e) => {
+              e.preventDefault()
+              const response = await fetch(`/phillip/panel/sil/${data.kullanıcıAdı}`, {
+                method: "DELETE",
+                credentials: "include"
+              })
+
+              if (response.ok) {
+                window.location.href = "/phillip/login"
+              } else {
+                alert("Kullanıcı silinemedi.")
+              }
+            })
+          }
+          else {
+            window.location.href = "/phillip/login"
+          }
+
+        }
+
+        const urunContent = document.getElementById("urun-content")
+        const kategoriContent = document.getElementById("kategori-content")
+        const bannerContent = document.getElementById("banner-content")
+        const kampanyaContent = document.getElementById("kampanya-content")
+        const anasayfaContent = document.getElementById("anasayfa-content")
+        const profilContent = document.getElementById("profil-content")
+
+        document.getElementById("anasayfa-butonu").classList.add("selected")
+
+
+        document.getElementById("urun-butonu").addEventListener("click", async () => {
+          urunContent.style.display = "block"
+          document.getElementById("urun-butonu").classList.add("selected")
+
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+
+        document.getElementById("kategori-butonu").addEventListener("click", () => {
+          kategoriContent.style.display = "block"
+          document.getElementById("kategori-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("banner-butonu-2").addEventListener("click", () => {
+          bannerContent.style.display = "block"
+          document.getElementById("banner-butonu-2").classList.add("selected")
+
+          urunContent.style.display = "none"
+          kategoriContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("kampanya-butonu").addEventListener("click", () => {
+          kampanyaContent.style.display = "block"
+          document.getElementById("kampanya-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("anasayfa-butonu").addEventListener("click", () => {
+          anasayfaContent.style.display = "block"
+          document.getElementById("anasayfa-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("profil-butonu").addEventListener("click", () => {
+          profilContent.style.display = "block"
+          document.getElementById("profil-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("anasayfa-urun-butonu").addEventListener("click", () => {
+          urunContent.style.display = "block"
+          document.getElementById("urun-butonu").classList.add("selected")
+
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("anasayfa-kategori-butonu").addEventListener("click", () => {
+          kategoriContent.style.display = "block"
+          document.getElementById("kategori-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          bannerContent.style.display = "none"
+          kampanyaContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("kampanya-butonu").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        document.getElementById("anasayfa-kampanya-butonu").addEventListener("click", () => {
+          kampanyaContent.style.display = "block"
+          document.getElementById("kampanya-butonu").classList.add("selected")
+
+          urunContent.style.display = "none"
+          kategoriContent.style.display = "none"
+          bannerContent.style.display = "none"
+          anasayfaContent.style.display = "none"
+          profilContent.style.display = "none"
+
+          document.getElementById("urun-butonu").classList.remove("selected")
+          document.getElementById("kategori-butonu").classList.remove("selected")
+          document.getElementById("banner-butonu-2").classList.remove("selected")
+          document.getElementById("anasayfa-butonu").classList.remove("selected")
+          document.getElementById("profil-butonu").classList.remove("selected")
+        })
+
+        const urunTabloHandler = async () => {
+          const response = await fetch("/phillip/panel/product", {
+            method: "GET",
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const data = await response.json()
+
+          if (data) {
+            const tHead = document.createElement("thead")
+            const tRow = document.createElement("tr")
+            const th1 = document.createElement("th")
+            const th2 = document.createElement("th")
+            const th3 = document.createElement("th")
+            const th4 = document.createElement("th")
+            const th5 = document.createElement("th")
+
+            th1.textContent = "İsim"
+            th2.textContent = "Kategori"
+            th3.textContent = "Stok"
+            th4.textContent = "Fiyat"
+            th5.textContent = "Sil"
+
+            document.getElementById("urun-tablosu").appendChild(tHead)
+            tHead.appendChild(tRow)
+            tRow.appendChild(th1)
+            tRow.appendChild(th2)
+            tRow.appendChild(th3)
+            tRow.appendChild(th4)
+            tRow.appendChild(th5)
+
+            data.forEach(urun => {
+              const tBody = document.createElement("tbody")
+              const tr = document.createElement("tr")
+              const td1 = document.createElement("td")
+              const td2 = document.createElement("td")
+              const td3 = document.createElement("td")
+              const td4 = document.createElement("td")
+              const td5 = document.createElement("td")
+              const silButonu = document.createElement("button")
+
+              silButonu.className = "sil-butonu"
+              silButonu.textContent = "Sil"
+              silButonu.type = "submit"
+
+              td1.textContent = urun.isim
+              td2.textContent = urun.kategori.isim
+              td3.textContent = urun.stok
+              td4.textContent = urun.fiyat
+              
+              tr.appendChild(td1)
+              tr.appendChild(td2)
+              tr.appendChild(td3)
+              tr.appendChild(td4)
+              td5.appendChild(silButonu)
+              tr.appendChild(td5)
+
+              tBody.appendChild(tr)
+              document.getElementById("urun-tablosu").appendChild(tBody)
+
+              silButonu.addEventListener("click", async (e) => {
+                e.preventDefault()
+
+                const response = await fetch(`/phillip/panel/product/${urun._id}`, {
+                  method: "DELETE",
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })
+
+                if (response.ok) {
+                  tr.remove()
+                } else {
+                  alert("Ürün silinemedi.")
+                }
+
+              })
+            })
+          }
+        }
+
+        urunTabloHandler()
+
+        const kampanyaEkleme = () => {
+          document.getElementById("kampanya-ekleme-butonu").addEventListener("click", async (e) => {
+            e.preventDefault()
+
+            const aciklama = document.getElementById("kampanya-aciklama").value
+            const kategori = document.getElementById("kampanya-kategori").value
+            const deger = document.getElementById("kampanya-değer").value
+            const kupon = document.getElementById("kampanya-kupon").value
+            const baslangic = document.getElementById("kampanya-başlangıç").value
+            const bitis = document.getElementById("kampanya-bitiş").value
+
+            const kampanya = {
+              açıklama: aciklama,
+              hedefKategori: kategori,
+              yüzdeDeğer: deger,
+              kuponKodu: kupon,
+              başlangıçTarihi: baslangic,
+              bitişTarihi: bitis
+            }
+
+            const response = await fetch("/phillip/panel/kampanya", {
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(kampanya)
+            })
+
+            if (response.ok) {
+              alert("Kampanya başarıyla eklendi.")
+              document.getElementById("kampanya-aciklama").value = ""
+              document.getElementById("kampanya-kategori").value = "Kategori Seçin"
+              document.getElementById("kampanya-değer").value = ""
+              document.getElementById("kampanya-kupon").value = ""
+              document.getElementById("kampanya-başlangıç").value = ""
+              document.getElementById("kampanya-bitiş").value = ""
+            } else {
+              alert("Kampanya eklenemedi.")
+            }
+          })
+        }
+
+        kampanyaEkleme()
+
+
+        const kampanyaTabloHandler = async () => {
+          const response = await fetch("/phillip/panel/kampanya", {
+            method: "GET",
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const data = await response.json()
+
+          if (data) {
+            const tHead = document.createElement("thead")
+            const tRow = document.createElement("tr")
+            const th1 = document.createElement("th")
+            const th2 = document.createElement("th")
+            const th3 = document.createElement("th")
+            const th4 = document.createElement("th")
+            const th5 = document.createElement("th")
+            const th6 = document.createElement("th")
+            const th7 = document.createElement("th")
+
+            th1.textContent = "Açıklama"
+            th2.textContent = "Hedef Kategori"
+            th3.textContent = "Yüzde Değer"
+            th4.textContent = "Kupon Kodu"
+            th5.textContent = "Başlangıç Tarihi"
+            th6.textContent = "Bitiş Tarihi"
+            th7.textContent = "Sil"
+
+            document.getElementById("kampanya-tablosu").appendChild(tHead)
+            tHead.appendChild(tRow)
+            tRow.appendChild(th1)
+            tRow.appendChild(th2)
+            tRow.appendChild(th3)
+            tRow.appendChild(th4)
+            tRow.appendChild(th5)
+            tRow.appendChild(th6)
+            tRow.appendChild(th7)
+
+            data.forEach(kampanya => {
+              const tBody = document.createElement("tbody")
+              const tr = document.createElement("tr")
+              const td1 = document.createElement("td")
+              const td2 = document.createElement("td")
+              const td3 = document.createElement("td")
+              const td4 = document.createElement("td")
+              const td5 = document.createElement("td")
+              const td6 = document.createElement("td")
+              const td7 = document.createElement("td")
+              const silButonu = document.createElement("button")
+
+              td1.textContent = kampanya.açıklama
+              td2.textContent = kampanya.hedefKategori.isim
+              td3.textContent = kampanya.yüzdeDeğer
+              td4.textContent = kampanya.kuponKodu
+              td5.textContent = kampanya.başlangıçTarihi
+              td6.textContent = kampanya.bitişTarihi
+              silButonu.className = "sil-butonu"
+              silButonu.textContent = "Sil"
+              silButonu.type = "submit"
+              td7.appendChild(silButonu)
+
+              tr.appendChild(td1)
+              tr.appendChild(td2)
+              tr.appendChild(td3)
+              tr.appendChild(td4)
+              tr.appendChild(td5)
+              tr.appendChild(td6)
+              tr.appendChild(td7)
+
+              tBody.appendChild(tr)
+              document.getElementById("kampanya-tablosu").appendChild(tBody)
+
+              silButonu.addEventListener("click", async (e) => {
+                e.preventDefault()
+
+                const response = await fetch(`/phillip/panel/kampanya/${kampanya._id}`, {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json"
+                  }
+                })
+
+                if (response.ok) {
+                  tr.remove()
+                } else {
+                  alert("Ürün Silinemedi")
+                }
+              })
+
+            })
+          }
+        }
+
+        kampanyaTabloHandler();
+
+        const profileHandler = async () => {
+          const currentKullanıcıAdı = document.getElementById("current-username")
+          let id = 0
+
+          document.getElementById("profil-butonu").addEventListener("click", async (e) => {
+            e.preventDefault()
+
+            const response = await fetch("/phillip/panel/userInfo", {
+              method: "GET",
+              credentials: "include"
+            })
+            
+            const data = await response.json()
+            id = data.id 
+
+            const response2 = await fetch(`/phillip/panel/user/${data.id}`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+
+            const data2 = await response2.json()
+
+            currentKullanıcıAdı.placeholder = data2.mevcutUsername
+          })
+
+          document.getElementById("bilgi-değiştirme-butonu").addEventListener("click", async (e) => {
+            e.preventDefault()
+
+            const mevcutUsername = document.getElementById("current-username").placeholder
+
+            const yeniUsername = document.getElementById("yeni-username").value
+            const reYeniUsername = document.getElementById("re-yeni-username").value
+
+            const yeniŞifre = document.getElementById("yeni-şifre").value
+            const reYeniŞifre = document.getElementById("re-yeni-şifre").value
+
+            const güncellemeObjesi = {
+              id: id,
+              mevcutUsername: mevcutUsername,
+              yeniUsername,
+              reYeniUsername,
+              yeniŞifre,
+              reYeniŞifre
+            }
+            
+            const response = await fetch("/phillip/panel/userInfo", {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              credentials: "include",
+              body: JSON.stringify( güncellemeObjesi )
+            })
+
+            const data = await response.json()
+
+            if (response.ok) {
+              alert("Kullanıcı Adı ve Şifre Başarıyla Değiştirildi")
+              document.getElementById("yeni-username").value = "";
+              document.getElementById("re-yeni-username").value = "";
+              document.getElementById("yeni-şifre").value = "";
+              document.getElementById("re-yeni-şifre").value = "";
+              currentKullanıcıAdı.placeholder = data.mevcutUsername
+            } else {
+              alert("Yeni Kullanıcı Adı veya Yeni Şifrenizde Hata Var")
+            }
+          })
+
+        }
+
+        profileHandler()
+      
+    </script>
+</body>
+</html>

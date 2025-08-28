@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-wrapper" >
+        <h1 class="header" >Yönetim Paneli</h1>
+        <div class="login-square" >
+            
+            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="p-5 bg-secondary text-white text-center" >
+                            <input type="text" id="username-signup" class="login-input" placeholder="Kullanıcı Adı" aria-label="Username">
+                            <input type="password" id="şifre-signup" class="login-input" placeholder="Şifre" aria-label="Password">
+                            <input type="password" id="re-şifre-signup" class="login-input" placeholder="Şifre Tekrarı" aria-label="Password"> 
+                            <button id="giriş-butonu-signup" class="btn btn-primary mt-3" type="button">Giriş Yap</button>
+                            <p class="not" >Hesabınız zaten varsa yana kaydırın</p>
+                        </div>     
+                    </div>
+                    <div class="carousel-item">
+                        <div id="login-input-wrapper" class="p-5 bg-secondary text-dark text-center" >
+                            <input type="text" id="username-login" class="login-input" placeholder="Kullanıcı Adı" aria-label="Username">
+                            <input type="password" id="şifre-login" class="login-input" placeholder="Şifre" aria-label="Password">
+                            <button id="giriş-butonu-login" class="btn btn-primary mt-3" type="button">Giriş Yap</button>
+                            <p class="not" >Hesabınız yoksa yana kaydırın</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+
+        </div>
+
+    </div>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="login.js"></script>
+</body>
+</html>
